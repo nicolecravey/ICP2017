@@ -17,6 +17,9 @@ __Course Webpage:__ (http://www.shahmoradi.org/ICP2017F/)
 __Photo:__ 
 ![Nicole Cravey](https://github.com/nicolecravey/ICP2017/blob/master/IMG_7405.JPG)
 
+Homework
+Quiz
+Exam
 
 For questions and troubleshooting, please contact:
 Nicole Cravey
