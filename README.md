@@ -17,9 +17,9 @@ __Course Webpage:__ (http://www.shahmoradi.org/ICP2017F/)
 __Photo:__ 
 ![Nicole Cravey](https://github.com/nicolecravey/ICP2017/blob/master/IMG_7405.JPG)
 
-Homework
-Quiz
-Exam
+[Homework](Homework) This directory contains my homework folders and files  
+[Quiz](Quiz) This directory contains my quiz folders and files  
+[Exam](Exam) This directory contains my exam folders and files  
 
 For questions and troubleshooting, please contact:
 Nicole Cravey
