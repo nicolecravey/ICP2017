@@ -78,14 +78,18 @@ a * d
  
 
 5.
+Diagonal:
 a = [2,2,2]
- 
 d = diag(a)
 ---
+Eye:
 I = eye(3) * 2
 ——
+Zero:
 a = zeros(3);a(1,1) = 2;a(2,2) = 2;a(3,3) = 2
 
 6. [errors fixed](https://github.com/nicolecravey/ICP2017/blob/master/Homework/script_full_of_errors_fixed)
 
 7. ![figure](https://github.com/nicolecravey/ICP2017/blob/master/Homework/homework%202%20figure.jpg)
+
+8. It tells you that you cannot open if and if you would like to switch folders (to mynewdir) to open it
