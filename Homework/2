@@ -86,6 +86,6 @@ I = eye(3) * 2
 ——
 a = zeros(3);a(1,1) = 2;a(2,2) = 2;a(3,3) = 2
 
-6. ![Nicole Cravey](https://github.com/nicolecravey/ICP2017/blob/master/IMG_7405.JPG)
+6. [errors fixed](https://github.com/nicolecravey/ICP2017/blob/master/Homework/script_full_of_errors_fixed)
 
-7. 
+7. ![figure](https://github.com/nicolecravey/ICP2017/blob/master/Homework/homework%202%20figure.jpg)
