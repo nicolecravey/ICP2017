@@ -1,0 +1,90 @@
+1.
+a=1 gives you a=1
+b='x' gives you b='x'
+c=true says that its logical 1
+whos a b c shows you that a b and c are 1x1 matrices, a has 8 bytes, b has 2, and c has 1,a is a double class, b is a char, and c is logical
+a == c gives you that its logical 1
+a + c gives you 2
+d = [1 2 3 4] gives you that d = 1 2 3 and 4
+e = ['a' 'b' 'c' 'd'] gives you e = 'abcd'
+f = ['abcd'] gives you f = 'abcd'
+h = { a b c d} gives you that 
+g = {'a' 'b' 'c' 'd'} gives you that its 1x4 cell array and that g= {'a'} {'b'} {'c'} {'d'}
+h = { a b c d } gives you that its a 1x4 cell aray and that h = {[1]}    {'x'}    {[1]}    {1×4 double}
+whos d e f g h shows that d,e,f,g, and h are all 1x4, d has 32 bytes, e and f 8, g 456, h 491, d is double, e and f are char, and g and h are cell
+ 
+2. 
+for bigger or smaller it would be put as the endpoints.
+intwine of int16 is -32767, and intmax is 32767
+intwine of int32 is -2,147,483,648, and intmax is 2147483647
+ 
+3.
+1/2 gives you .5
+1\2 gives you 2
+int8(1/2) gives you int8 1
+int8(1/3) gives you int8 0
+-5^2 gives you -25
+(-5)^2 gives you 25
+10-6/2 gives you 7
+5*4/2*3 gives you 30
+ 
+4 (a).
+ a = [1,0;2,1]
+ b = [-1,2;0,1]
+ c = [3;2]
+ d = 5
+ 
+4 (b). 
+a + b =   
+     0     2
+     2     2
+MATLAB added the matrices a and b, so -1 + 1 = 0, 2 + 0 = 2, 2 + 0 = 2, and 1 + 1 = 2
+ 
+a .* b =
+ -1     0
+  0     1
+  MATLAB multiplied the matrices
+  
+a * b = 
+-1     2
+-2     5
+MATLAB answers this by (A1:1 x B1:1)+(A1:2 x B1:1), (A1:1 x B1:2)+(A1:2 x B1:2), and so on
+ 
+ 
+a * c =
+  3
+  8
+MATLAB answers this by (A1:1 x C1:1)+(A1:2 x C1:1), and (A2:1 x C2:1) + (A2:2 x C2:1)
+ 
+a + c =
+4     3
+4     3
+MATLAB answers this by (A1:1 + C1:1),(A1:2 + C1:1),(A2:1 + C2:1),and (A2:2 + C2:1)
+ 
+a + d=
+ 6     5
+ 7     6
+MATLAB answers this by (A1:1 + D1:1),(A1:2 + D1:1),(A2:1 + D1:1), and (A2:2 + D1:1)
+ 
+a .* d=
+ 5     0
+10     5
+MATLAB answers this by (A1:1 x D1:1), (A1:2 x D1:1), etc
+ 
+a * d
+  5     0
+  10     5
+  MATLABs answer is the same as the previous answer because D only has 1 colum and row
+ 
+
+5.
+a = [2,2,2]
+ 
+d = diag(a)
+---
+I = eye(3) * 2
+——
+a = zeros(3);a(1,1) = 2;a(2,2) = 2;a(3,3) = 2
+
+7.
+￼
