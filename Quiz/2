@@ -1,1 +1,43 @@
+1.
+(A) machine language
+(B) yes
 
+2.
+(A) Fortran
+(B) +15 years
+
+3.
+(A) Assembly
+(B) 3rd
+
+4. 80's
+5. 
+6. C
+7. C++
+8. 
+c = {2,2;2,2}
+c =
+
+  2×2 cell array
+
+    {[2]}    {[2]}
+    {[2]}    {[2]}
+    
+    
+c(1,1) =
+1×1 cell array
+
+    {[2]}
+    
+    
+c = {3 + 4*i,-5;-10*i,3-4*1}
+  2×2 cell array
+
+    {[3.0000 + 4.0000i]}    {[-5]}
+    {[0.0000 -10.0000i]}    {[-1]}
+
+9. c{2}
+Cell contents reference from a non-cell array object.
+10. column wise, that means that it goes through the data in order of the columns. 
+11. 9,223,372,036,854,775,807
+12. it gives you the endpoint for int64 
