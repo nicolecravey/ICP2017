@@ -37,7 +37,10 @@ c = {3 + 4*i,-5;-10*i,3-4*1}
     {[0.0000 -10.0000i]}    {[-1]}
 
 9. c{2}
-Cell contents reference from a non-cell array object.
+
+ans =
+
+     2
 10. column wise, that means that it goes through the data in order of the columns. 
 11. 9,223,372,036,854,775,807
 12. it gives you the endpoint for int64 
