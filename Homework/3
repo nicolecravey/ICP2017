@@ -89,14 +89,18 @@ _______________
 7.
 
 function outLogical = isPrime(n)
-if (n == 0)
+outLogical = true;
+divisor = 2;
+sqrt n = round(sqrt(n));
+    
+function isDivisible(n,divisor)
+if mod(n,divisor) == 0
     outLogical = 'false';
-elseif (n == 2)
-    outLogical = 'true';
+elseif sqrt_n<divisor
+    return
 else
-    for x=2:n-1
-        if (mod(n,x) == 0)
-            outLogical = 'false';
+    divisor = divisor + 1;
+    isDivisible(n,divisor)
 end
 end
 end
