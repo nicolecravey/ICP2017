@@ -1,0 +1,482 @@
+1.
+
+(A).
+function OutVec = convertTempFor(InVec,str)
+OutVec = zeros(size(InVec));
+if (stromp(str,'C2F')==1)
+        for i=1:length(InVec)
+        OutVec(1,i) = 1.8*InVec(1,i)+32;
+    end
+ elseif(strcmp(statement,'F2C')==1)
+    for i=1:length(InVec)
+        OutVec(1,i) = 5*(InVec(1,i)-32)/9;
+    end
+else
+    error('Input must be C2F or F2C');
+end
+end
+
+
+(B).
+function OutVec = convertTempWhile(InVec,statement)
+OutVec = zeros(1,length(InVec));
+if(strcmp(statement,'C2F')==1)
+    i=1;
+    while(i~=length(InVec)+1)
+        OutVec(1,i) = 1.8*InVec(1,i)+32;
+        i=i+1;
+    end
+ 
+elseif(strcmp(statement,'F2C')==1)
+     i=1;
+    while(i~=length(InVec)+1)
+        OutVec(1,i) = 5*(InVec(1,i)-32)/9;
+        i=i+1;
+    end
+else
+    error('Input must be C2F or F2C');
+end
+end
+
+
+(C).
+function OutVec = convertTempVec(InVec,statement)
+OutVec = zeros(1,length(InVec));
+if(strcmp(statement,'C2F')==1)
+    i = 1:length(InVec);
+    OutVec(1,i) = 1.8*InVec(1,i)+32;
+elseif(strcmp(statement,'F2C')==1)
+    i = 1:length(InVec);
+    OutVec(1,i) = 5*(InVec(1,i)-32)/9;
+else
+    error('Input must be C2F or F2C');
+end
+end
+
+
+——————
+
+2.
+
+(A.)
+
+data = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40];
+>> tic, convertTempFor(starterdata,'C2F') ,toc
+
+ans =
+
+    -4     5    14    23    32    41    50    59    68    77    86    95   104
+
+Elapsed time is 0.000495 seconds.
+
+(B).
+data = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40];
+>> tic, convertTempWhile(starterdata,'C2F') ,toc
+
+ans =
+
+    -4     5    14    23    32    41    50    59    68    77    86    95   104
+
+Elapsed time is 0.001662 seconds.
+
+(C).
+data = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40];
+>> tic, convertTempVec(starterdata,'C2F') ,toc
+
+ans =
+
+    -4     5    14    23    32    41    50    59    68    77    86    95   104
+
+Elapsed time is 0.080273 seconds.
+
+————
+
+3.
+List = { {'M','A','T','L','A','B'}, {' '}, {'i','s'}, {' '}, {'a'}, {' '}, {'s','t','r','a','n','g','e'}, {', '}, {'b','u','t',' '}, {'p','o','p','u','l','a','r'}, {' '}, {'p','r','o','g','r','a','m','m','i','n','g',' ','l','a','n','g','u','a','g','e'} };
+
+
+function statement = extractLetter(cellofchars)
+
+if(isa(cellofchars,'cell'))
+
+    arr = [];
+
+    length = size(cellofchars);
+
+    for i=1:length(2)       % The second element of the size array is the number of columns
+
+        arr = [arr cellofchars{i}];
+
+    end
+
+ statement = strjoin(arr,''); % This, unlike strcat won't remove the trailing white spaces which are necessary
+
+
+
+
+        %elementlength = size(List{i})
+
+        %for j=1:elementlength(2)
+
+        %disp(char(statement(i
+
+else
+
+    error('Input must be a cell array');
+
+end
+
+end
+
+
+——
+
+4.
+
+formatSpec = 'With %d sqrt, then %d times ^2 operations, the number %.16f becomes: %.16f \n'; % the string format for fprintf function
+for n = 1:60
+    r_original = 2.0;
+    r = r_original;
+    for i = 1:n
+        r = sqrt(r);
+    end
+    for i = 1:n
+        r = r^2;
+    end
+    fprintf(formatSpec,n,n,r_original,r);
+end
+
+With 1 sqrt, then 1 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000000000004 
+With 2 sqrt, then 2 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999999996 
+With 3 sqrt, then 3 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999999996 
+With 4 sqrt, then 4 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999999964 
+With 5 sqrt, then 5 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999999964 
+With 6 sqrt, then 6 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999999964 
+With 7 sqrt, then 7 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999999714 
+With 8 sqrt, then 8 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000000000235 
+With 9 sqrt, then 9 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000000000235 
+With 10 sqrt, then 10 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000000000235 
+With 11 sqrt, then 11 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000000000235 
+With 12 sqrt, then 12 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999991336 
+With 13 sqrt, then 13 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999973292 
+With 14 sqrt, then 14 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999973292 
+With 15 sqrt, then 15 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999999973292 
+With 16 sqrt, then 16 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000000117746 
+With 17 sqrt, then 17 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000000408580 
+With 18 sqrt, then 18 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000000408580 
+With 19 sqrt, then 19 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000001573586 
+With 20 sqrt, then 20 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000001573586 
+With 21 sqrt, then 21 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000001573586 
+With 22 sqrt, then 22 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000010885857 
+With 23 sqrt, then 23 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000029511749 
+With 24 sqrt, then 24 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000066771721 
+With 25 sqrt, then 25 times ^2 operations, the number 2.0000000000000000 becomes: 2.0000000066771721 
+With 26 sqrt, then 26 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999917775542 
+With 27 sqrt, then 27 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999917775542 
+With 28 sqrt, then 28 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999917775542 
+With 29 sqrt, then 29 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999917775542 
+With 30 sqrt, then 30 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999917775542 
+With 31 sqrt, then 31 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999999917775542 
+With 32 sqrt, then 32 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999990380770896 
+With 33 sqrt, then 33 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999971307544144 
+With 34 sqrt, then 34 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999971307544144 
+With 35 sqrt, then 35 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999971307544144 
+With 36 sqrt, then 36 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999971307544144 
+With 37 sqrt, then 37 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999971307544144 
+With 38 sqrt, then 38 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999360966436217 
+With 39 sqrt, then 39 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999360966436217 
+With 40 sqrt, then 40 times ^2 operations, the number 2.0000000000000000 becomes: 1.9999360966436217 
+With 41 sqrt, then 41 times ^2 operations, the number 2.0000000000000000 becomes: 1.9994478907329654 
+With 42 sqrt, then 42 times ^2 operations, the number 2.0000000000000000 becomes: 1.9984718365144798 
+With 43 sqrt, then 43 times ^2 operations, the number 2.0000000000000000 becomes: 1.9965211562778555 
+With 44 sqrt, then 44 times ^2 operations, the number 2.0000000000000000 becomes: 1.9965211562778555 
+With 45 sqrt, then 45 times ^2 operations, the number 2.0000000000000000 becomes: 1.9887374575497223 
+With 46 sqrt, then 46 times ^2 operations, the number 2.0000000000000000 becomes: 1.9887374575497223 
+With 47 sqrt, then 47 times ^2 operations, the number 2.0000000000000000 becomes: 1.9887374575497223 
+With 48 sqrt, then 48 times ^2 operations, the number 2.0000000000000000 becomes: 1.9887374575497223 
+With 49 sqrt, then 49 times ^2 operations, the number 2.0000000000000000 becomes: 1.8682459487159784 
+With 50 sqrt, then 50 times ^2 operations, the number 2.0000000000000000 becomes: 1.6487212645509468 
+With 51 sqrt, then 51 times ^2 operations, the number 2.0000000000000000 becomes: 1.6487212645509468 
+With 52 sqrt, then 52 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+With 53 sqrt, then 53 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+With 54 sqrt, then 54 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+With 55 sqrt, then 55 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+With 56 sqrt, then 56 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+With 57 sqrt, then 57 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+With 58 sqrt, then 58 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+With 59 sqrt, then 59 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+With 60 sqrt, then 60 times ^2 operations, the number 2.0000000000000000 becomes: 1.0000000000000000 
+
+What this code does is it first takes the square root of 2.0 and then gives the output. Then it takes the square root of 2.0, and the square root of that, and then outputs it. It repeats this process x number of times, while taking the square root of the square root of 2.0 x number of times. You won’t get exactly 2.0 back though when you reverse it because the square root of 2.0 has an infinite number of decimal points (irrational number) and so the computer has to round it. Because it is rounded the number gets slightly more off every x number of times you take the square root, and so when you try to go back it is slightly off due to that inconsistancy.
+
+
+——
+
+5.
+
+eps = 1.0;
+while 1.0 ~= 1.0 + eps
+    disp(num2str(eps));
+    eps = eps / 2.0;
+end
+disp(['final eps:', num2str(eps)]);
+
+
+1
+0.5
+0.25
+0.125
+0.0625
+0.03125
+0.015625
+0.0078125
+0.0039062
+0.0019531
+0.00097656
+0.00048828
+0.00024414
+0.00012207
+6.1035e-05
+3.0518e-05
+1.5259e-05
+7.6294e-06
+3.8147e-06
+1.9073e-06
+9.5367e-07
+4.7684e-07
+2.3842e-07
+1.1921e-07
+5.9605e-08
+2.9802e-08
+1.4901e-08
+7.4506e-09
+3.7253e-09
+1.8626e-09
+9.3132e-10
+4.6566e-10
+2.3283e-10
+1.1642e-10
+5.8208e-11
+2.9104e-11
+1.4552e-11
+7.276e-12
+3.638e-12
+1.819e-12
+9.0949e-13
+4.5475e-13
+2.2737e-13
+1.1369e-13
+5.6843e-14
+2.8422e-14
+1.4211e-14
+7.1054e-15
+3.5527e-15
+1.7764e-15
+8.8818e-16
+4.4409e-16
+2.2204e-16
+final eps:1.1102e-16
+
+This code divides eps by 2, and then divides that number by two, over and over again, until finally eps is 1.1102e-16. 1.0 ~= 1.0 + eps is false because the number is so small, that when you add it to 1.0 it shows 1.0, because it is 1.0000000000000001.
+
+——
+
+6.
+
+function largestprime = getLargestprime(input)
+for i = input: -1 :1
+    if isprime(i)
+        largestprime = i;
+        break;
+    end
+end
+
+
+>> getLargestprime(123)
+
+ans =
+
+   113
+
+———
+
+7.
+
+(A).
+
+function fib
+in = input('Please enter a non-negative integer or type stop: ','s');
+if(strcmp(in,'stop') == 1)
+    return;
+else
+    num = str2double(in);
+    if isreal(in)
+        if(num == round(num) && num >= 0)
+        disp(getFib(num));
+        fib;
+    else
+        disp('The input is a non-negative integer!');
+        fib;
+    end
+    
+end
+function y = getFib(n_int)
+if (n_int == 0)
+    y = 0;
+ 
+elseif (n_int == 1)
+    y = 1;
+ 
+else
+    y = getFib(n_int-1) + getFib(n_int-2);
+end
+end
+end
+ 
+
+(B).
+
+function fibloop
+ 
+    in = input('Please enter a non-negative integer or type stop: ','s');
+    if strcmp(in,'stop')
+        return
+    else
+        num = str2double(in);
+        if isreal(in)
+            if(num == round(num) && num >= 0)
+        disp(getFib(num));
+        fibloop;
+    else
+        disp('The input is a non-negative integer!');
+                
+                fibloop
+                return
+            end
+        end
+        disp('The input argument is not a non-negative integer!');
+        fib;
+    end
+    
+   end
+function y = getFib(n_int)
+if (n_int == 0)
+    y = 0;
+ 
+elseif (n_int == 1)
+    y = 1;
+ 
+else
+    y = getFib(n_int-1) + getFib(n_int-2);
+end
+end
+
+(C).
+ 
+fib
+
+Please enter a non-negative integer or type stop: 10
+    55
+
+Please enter a non-negative integer or type stop: 15
+   610
+
+Please enter a non-negative integer or type stop: 20
+        6765
+
+Please enter a non-negative integer or type stop: 25
+       75025
+
+Please enter a non-negative integer or type stop: 30
+      832040
+
+Please enter a non-negative integer or type stop: 35
+     9227465
+
+Please enter a non-negative integer or type stop: stop
+
+>> fibloop
+Please enter a non-negative integer or type stop: 10
+    55
+
+Please enter a non-negative integer or type stop: 15
+   610
+
+Please enter a non-negative integer or type stop: 20
+        6765
+
+Please enter a non-negative integer or type stop: 25
+       75025
+
+Please enter a non-negative integer or type stop: 30
+      832040
+
+Please enter a non-negative integer or type stop: 35
+     9227465
+
+Please enter a non-negative integer or type stop: stop
+
+
+——
+
+8.
+
+(A).
+function output = timeFib(n)
+if(~ischar(n)&&isreal(n)&&n>=0&&round(n)==n)
+output = struct;
+f = @() getFib(n);
+output(1).n = n;
+output(1).fib = getFib(n);
+output(1).runtime = timeit(f);
+else
+    error('The input argument is not a non-negative integer!');
+end
+ 
+ 
+    function fib = getFib(n_int)
+        if n_int == 0
+            fib = 0;
+        elseif n_int == 1
+            fib = 1;
+        else
+            fib = getFib(n_int-1) + getFib(n_int-2);
+        end
+    end
+end
+
+
+function output = timeFibLoop(n)
+if(~ischar(n)&&isreal(n)&&n>=0&&round(n)==n)
+output = struct;
+f = @() getFib(n);
+output(1).n = n;
+output(1).fib = getFib(n);
+output(1).runtime = timeit(f);
+else
+    error('The input argument is not a non-negative integer!');
+end
+ 
+    function fib = getFib(n_int)
+        firstnum = 0;
+        secondnum = 1;
+        for i = 2:n_int
+            fib = firstnum+secondnum;
+            firstnum=secondnum;
+            secondnum=fib;
+        end
+    end
+end
+
+
+
+(B).
+
+N = 1:35;
+L = Length(N)
+for i = L:-1:1
+    outputTimeFib(1) = timeFib(i);
+    outputTimeFibLoop(1) = timeFibLoop(i);
+    writetable(struct2table(outputTimeFib),'fibOutput,txt')
+    writetable(struct2table(outputTimeFibLoop),'fibLoopOutout,txt')
+end
