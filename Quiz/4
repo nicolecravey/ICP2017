@@ -1,0 +1,106 @@
+
+1.
+(A)
+function OutVec = convertFacWhile(in,statement)
+OutVec = zeros(1,length(in));
+if(strcmp(statement,'stop')==1)
+    return
+elseif
+    i=1;
+    while num = str2double(in);
+        if isreal(in)
+            if(num == round(num) && num >= 0)
+        disp(getFib(num));
+    end
+  
+else
+    disp('The input is a non-negative integer!');
+        end
+    end
+end
+end
+function y = getFib(n_int)
+if (n_int == 0)
+    y = 0;
+ 
+elseif (n_int == 1)
+    y = 1;
+ 
+else
+    y = getFib(n_int-1) + getFib(n_int-2);
+end
+end
+
+
+(B)
+function OutVec = convertFacVec(InVec,statement)
+OutVec = zeros(1,length(InVec));
+if(strcmp(statement,'stop')==1)
+    return
+elseif
+    i = 1:length(InVec);
+    num = str2double(in);
+        if isreal(in)
+            if(num == round(num) && num >= 0)
+        disp(getFib(num));
+    end
+  
+else
+    disp('The input is a non-negative integer!');
+        end
+    end
+end
+end
+function y = getFib(n_int)
+if (n_int == 0)
+    y = 0;
+ 
+elseif (n_int == 1)
+    y = 1;
+ 
+else
+    y = getFib(n_int-1) + getFib(n_int-2);
+end
+end
+
+
+
+(C)
+function OutVec = convertFacFor(InVec,statement)
+OutVec = zeros(size(InVec));
+if(strcmp(statement,'stop')==1)
+    return
+elseif
+    for i=1:length(InVec)
+    num = str2double(in);
+        if isreal(in)
+            if(num == round(num) && num >= 0)
+        disp(getFib(num));
+    end
+  
+else
+    disp('The input is a non-negative integer!');
+        end
+    end
+end
+end
+function y = getFib(n_int)
+if (n_int == 0)
+    y = 0;
+ 
+elseif (n_int == 1)
+    y = 1;
+ 
+else
+    y = getFib(n_int-1) + getFib(n_int-2);
+end
+end
+
+
+———
+
+2.
+
+tic, convertFacWhile(InVec,statement) ,toc
+tic, convertFacVec(InVec,statement) ,toc
+tic, convertFacFor(InVec,statement) ,toc
