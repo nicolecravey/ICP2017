@@ -92,41 +92,18 @@ Elapsed time is 0.080273 seconds.
 ————
 
 3.
+
 List = { {'M','A','T','L','A','B'}, {' '}, {'i','s'}, {' '}, {'a'}, {' '}, {'s','t','r','a','n','g','e'}, {', '}, {'b','u','t',' '}, {'p','o','p','u','l','a','r'}, {' '}, {'p','r','o','g','r','a','m','m','i','n','g',' ','l','a','n','g','u','a','g','e'} };
-
-
-function statement = extractLetter(cellofchars)
-
-if(isa(cellofchars,'cell'))
-
-    arr = [];
-
-    length = size(cellofchars);
-
-    for i=1:length(2)       % The second element of the size array is the number of columns
-
-        arr = [arr cellofchars{i}];
-
+n = 0;
+B = cell(51,1);
+for i = 1:length(list)
+    A = list(i);
+    for j = 1:length(A)
+        n = n+1;
+        B(n) = A(j);
     end
-
- statement = strjoin(arr,''); % This, unlike strcat won't remove the trailing white spaces which are necessary
-
-
-
-
-        %elementlength = size(List{i})
-
-        %for j=1:elementlength(2)
-
-        %disp(char(statement(i
-
-else
-
-    error('Input must be a cell array');
-
 end
-
-end
+disp([B{:}])
 
 
 ——
