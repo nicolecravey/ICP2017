@@ -20,11 +20,9 @@ end
 
 function plotGrowthRate()
 d = importdata('chain.txt');
+plot(d.data(:,4);
+set(gcaa, 'xscale', 'log');
 end 
-plot(d.data(:,4)
-set(gcaa, 'xscale', 'log')
-   
-end
 
 
 
