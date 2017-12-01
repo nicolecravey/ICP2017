@@ -1,0 +1,170 @@
+
+1.
+
+function output = Rand3Group()
+rng(131313);
+triples = randperm(99);
+fileID = fopen('students.csv');
+mytable = readtable('students.csv');
+output = cell(33,3);
+row = 1;
+col = 1;
+for i = 1:99
+  output{row,col} =  cell2mat(mytable{triples(i),2});
+  if(row == 33)
+    row = 1;
+    col = col + 1;
+  else
+    row = row + 1;
+  end
+end
+fclose(fileID);
+xlswrite('groups.xlsx',output);
+end
+
+
+———
+
+2.
+
+(A)/(B)
+
+triggerListUrl = 'http://www.shahmoradi.org/ICP2017F/homework/5-problems/triggers.txt';
+TriggerList = webread(triggerListUrl);
+TriggerList = strsplit( TriggerList , '\n');
+ 
+dataDir = './swift/';
+mkdir(dataDir)
+ 
+for i = 1:length(TriggerList)
+dataRepos = 'http://www.shahmoradi.org/ICP2017F/homework/5-problems/swift/';
+filename = ['GRB' ,TriggerList{i},'_ep_fluUnknown.txt'];
+dataURL = [dataRepos, filename];
+missingFileCounter = 0;
+try
+    disp(['fetching file number', num2str(i)]);
+    data = webread(dataURL);
+    fid = fopen(filename, 'w');
+    fprintf(fid,'%s',data);
+fclose(fid);
+catch
+    missingFileCounter = missingFileCounter + 1;
+    disp('The requested file dpes not exist on the webl skipping...');
+    disp(['total number of missing files', num2str(missingFileCounter)]);
+end
+ 
+end
+disp(['total number of missing files'])
+
+
+(C)
+
+function plotDataFromFile()
+directory = dir('C:\Users\vishn\OneDrive\Documents\MATLAB\.swift');
+success = 0;
+data = [0,0];
+     for i = 3:size(directory)
+         if(directory(i).bytes>0)
+             currentdata = readtable(['.swift/',directory(i).name]);
+             try 
+                 currarr = table2array(currentdata);
+                 if(all(currarr(:,2)<0.0)) 
+                     data = [data ; table2array(currentdata)];
+                     success = success+1;
+                 end
+             catch
+                 disp(['didnt recognize at', directory(i).name]);
+             end
+         end
+     end
+    
+    scatter(exp(data(:,2)), data(:,1), 1,'red','filled','MarkerFaceAlpha',.1,'MarkerEdgeAlpha',.1);
+   
+    title('Plot of Epeak vs Fluence for 650 Swift GRB events');
+    xlabel('Fluence [ergs/cm^2]');
+    set(gca,'xscale','log');
+    xlim([1.0000e-08 1.0000e-02]);
+    xticks([ 1.0000e-8 1.0000e-6 1.0000e-4 1.0000e-2]);
+    
+   
+    ylabel('Epeak');
+    set(gca,'yscale','log');
+    ylim([1.0000e0 1.0000e04]);
+ 
+    disp(num2str(success));
+end 
+
+
+———
+
+3.
+rng('shuffle');
+nsample = 10000;
+winCounter = 0;
+winCount = 0;
+ 
+ 
+for (i = 1:nsample)
+    doors = [1,2,3];
+    doorWithCar = randi(3);
+    myChoice = randi(3);
+    
+    if(doorWithCar~=myChoice)
+        hostChoice = doors(doors~=doorWithCar);
+        hostChoice = hostChoice(hostChoice~=myChoice);
+        hostDoor = hostChoice;
+    elseif(doorWithCar==myChoice)
+        hostChoice = doors(doors~=doorWithCar);
+        a = randi(2)
+        hostDoor = hostChoice(a);
+    end
+    
+remainingDoors = doors(doors~=hostDoor);
+switchDoor = remainingDoors(remainingDoors~=myChoice);
+ 
+if(switchDoor == doorWithCar)
+    winCount = winCount + 1;
+    winRateSwitch(i) = winCount/i;
+else
+    winRateSwitch(i) = winCount/i;
+end
+ 
+if(myChoice==doorWithCar)
+    winCounter = winCounter + 1;
+    winRateNotSwitch(i) = winCounter/i;
+else
+    winRateNotSwitch(i) = winCounter/i;
+end
+end
+disp(['the odds of winning without switching are', num2str(winCounter/nsample)]);
+disp(['the odds of winning when switching are', num2str(winCount/nsample)]);
+plot(winRateNotSwitch);
+hold on;
+plot(winRateSwitch);
+
+
+the odds of winning without switching are0.34
+the odds of winning when switching are0.66
+
+————
+
+4.
+
+function out = guess_pi(n)
+    inCircle = 0;
+    inSquare = 0;
+    points  = rand([2,n]);
+ 
+for point = 1:n
+    x = points(1, point);
+    y = points(2, point);
+    vec = [x y];
+    if rssq(vec) <= 1.0
+        inCircle = inCircle + 1;
+        inSquare = inSquare + 1;
+    else
+        inSquare = inSquare + 1;
+    end
+end
+ 
+out = 4*(inCircl/inSquare);
