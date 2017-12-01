@@ -1,0 +1,36 @@
+1.
+
+growthRateUrl = ('http://www.shahmoradi.org/ICP2017F/quiz/5-problems/chain.txt');
+GrowthRate = webread(growthRateUrl);
+GrowthRate = strsplit( GrowthRate , '\n');
+dataDir = './swift/';
+mkdir(dataDir)
+
+try
+    data = webread(dataURL);
+    fid = fopen(filename, 'w');
+fclose(fid);
+end
+
+function plotGrowthRate()
+d = importdata('chain.txt');
+plot(d.data(:,4)
+   
+end
+
+
+
+
+2.
+
+try
+robustWebRead = webread();
+catch
+    disp('The requested page does not exist! Gracefully exiting...')
+end
+
+
+3.
+
+gca shows the information on the axes like the xlim and ylim and the scales
+gfc shows the appearence of the plot like the color and the units
