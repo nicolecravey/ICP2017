@@ -60,7 +60,7 @@ disp(['total number of missing files'])
 (C)
 
 function plotDataFromFile()
-directory = dir('C:\Users\vishn\OneDrive\Documents\MATLAB\.swift');
+directory = dir('C:\Users\htdadmin\MATLAB\.swift');
 success = 0;
 data = [0,0];
      for i = 3:size(directory)
