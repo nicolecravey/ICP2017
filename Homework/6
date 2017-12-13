@@ -123,8 +123,9 @@ add this:
  
  function findBestFitParameters()
  load('Drand.mat');   
+ data = Drand;
  global nsample 
- nsample = length(Drand);
+ nsample = length(data);
  mu = 1; 
  sigma = 10; 
  x = fminsearch(@getLogProbNorm, [mu,sigma]);  
