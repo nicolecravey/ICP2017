@@ -115,3 +115,27 @@ add this:
  end
  to delineate and countour
  
+ 3.
+ 
+ function findBestFitParameters()
+ load('Drand.mat');   
+ global nsample 
+ nsample = length(Drand);
+ mu = 1; 
+ sigma = 10; 
+ x = fminsearch(@getLogProbNorm, [mu,sigma]);  
+ fprintf ('mu: %f, sigma: %f\n', x(1), x(2));
+end
+
+ function output = getLogProbNorm(param)
+     global data nsample
+     logprob = zeros(nsample,1);
+     for i = 1:nsample
+         logprob(i) = log(normpdf(data(i),param(1),param(2)));  
+     end
+     output = -sum (logprob);
+ end
+ 
+ findBestFitParameters
+mu: -0.082001, sigma: 1.004336
+ 
