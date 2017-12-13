@@ -105,6 +105,8 @@ end
 
 saveas(gcf,'currentPlot2.png');   
 
+------------
+
 2. 
 add this:
  objects = bwboundaries(BW,'noholes'); 
@@ -114,6 +116,8 @@ add this:
          plot(contour(:,2), contour(:,1), 'r', 'LineWidth', 4); 
  end
  to delineate and countour
+ 
+ ------------
  
  3.
  
